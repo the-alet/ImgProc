@@ -1,0 +1,6 @@
+[submodule "addons/opencv"]
+	path = addons/opencv
+	url = https://github.com/opencv/opencv.git
+[submodule "addons/opencv_contrib"]
+	path = addons/opencv_contrib
+	url = https://github.com/opencv/opencv_contrib.git

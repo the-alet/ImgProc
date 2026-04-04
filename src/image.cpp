@@ -1,6 +1,6 @@
 #include <iostream>
 #include <algorithm>
-
+#include <cmath>
 #include "image.h"
 #include "kernel.h"
 
@@ -18,7 +18,7 @@ void Image::input(const char* filename) {
         return;
     }
     if (img.channels() != 4) {
-        cv::cvtColor(img, img, cv::COLOR_BGR2RGBA);
+        cv::cvtColor(img, img, cv::COLOR_RGB2RGBA);
     }
     data = img.clone();
     width = data.cols;

@@ -1,11 +1,9 @@
-#include <opencv2/opencv.hpp>
-
-#include "kernel.h"
-
-
 #ifndef __image_h__
 #define __image_h__
 
+#include <opencv2/opencv.hpp>
+
+class Kernel;
 
 enum BorderStrategy {
     ZERO,    // zero padding

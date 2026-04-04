@@ -1,12 +1,10 @@
-#pragma once
+#ifndef __kernel_h__
+#define __kernel_h__
 
 #include <string>
 #include <vector>
 
 #include "image.h"
-
-#ifndef __kernel_h__
-#define __kernel_h__
 
 class Kernel {
 public:

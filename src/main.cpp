@@ -1,8 +1,8 @@
 #include <iostream>
 #include <string>
 
-#include "image.h"
 #include "kernel.h"
+#include "image.h"
 
 static void applyKernel(Image& src, Image& dst, Kernel& kernel, BorderStrategy strategy, bool isParallel) {
     kernel.apply(src, dst, strategy, isParallel);

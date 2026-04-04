@@ -1,4 +1,5 @@
 #include "kernel.h"
+#include "image.h"
 #include <fstream>
 #include <iostream>
 #include <algorithm>
@@ -7,6 +8,8 @@
 #ifdef _OPENMP
 #include <omp.h>
 #endif
+
+
 
 Kernel::Kernel() : size(0) {}
 
@@ -49,7 +52,7 @@ bool Kernel::loadFromFile(const char* filename) {
     return true;
 }
 
-void Kernel::apply(Image& src, Image& dst, BorderStrategy strategy, bool parallel) const {
+void Kernel::apply(Image& src, Image& dst, BorderStrategy strategy, bool isParallel) const {
     if (matrix.empty() || size == 0) return;
 
     if (src.width != dst.width || src.height != dst.height || src.channels != dst.channels) {
@@ -79,7 +82,7 @@ void Kernel::apply(Image& src, Image& dst, BorderStrategy strategy, bool paralle
         }
         };
 
-    if (parallel) {
+    if (isParallel) {
 #pragma omp parallel for collapse(2)
         for (int y = 0; y < src.height; ++y) {
             for (int x = 0; x < src.width; ++x) {
@@ -94,6 +97,7 @@ void Kernel::apply(Image& src, Image& dst, BorderStrategy strategy, bool paralle
             }
         }
     }
+
 }
 
 
