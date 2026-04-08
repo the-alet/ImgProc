@@ -31,13 +31,13 @@ set(OPENCV_EXTRA_MODULES_PATH "${CMAKE_SOURCE_DIR}/addons/opencv_contrib/modules
 
 add_subdirectory(addons/opencv)
 
-add_executable(imgProc
+add_executable(ImgProc
     src/main.cpp
     src/image.cpp
     src/kernel.cpp
 )
 
-target_link_libraries(imgProc
+target_link_libraries(ImgProc
     opencv_core
     opencv_imgproc
     opencv_imgcodecs
@@ -45,6 +45,6 @@ target_link_libraries(imgProc
 
 find_package(OpenMP)
 if(OpenMP_CXX_FOUND)
-    target_link_libraries(imgProc ${OpenMP_CXX_LIBRARIES})
-    target_compile_options(imgProc PRIVATE ${OpenMP_CXX_FLAGS})
+    target_link_libraries(ImgProc ${OpenMP_CXX_LIBRARIES})
+    target_compile_options(ImgProc PRIVATE ${OpenMP_CXX_FLAGS})
 endif()
